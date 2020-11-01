@@ -1,0 +1,18 @@
+name: 'Micropub'
+description: 'Create a post on your website using micropub'
+inputs:
+  endpoint:
+    description: 'The micropub endpoint URL'
+    required: true
+  token:
+    description: 'The indieauth token to use'
+    required: true
+  post:
+    description: 'The post to create'
+    required: true
+outputs:
+  url:
+    description: 'URL of the created post'
+runs:
+  using: 'node12'
+  main: 'index.js'

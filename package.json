@@ -1,0 +1,21 @@
+{
+  "name": "micropub-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "micropub-helper": "^1.6.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "jest": "^26.6.1"
+  }
+}
