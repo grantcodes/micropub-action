@@ -30,7 +30,7 @@ The url of the created post.
 uses: grantcodes/micropub-action@v1
 with:
   endpoint: "https://example.com/micropub"
-  token:
+  token: ${{ secrets.MICROPUB_TOKEN }}
   post:
     - content: "Hello this is a basic note"
 ```
@@ -39,7 +39,7 @@ with:
 uses: grantcodes/micropub-action@v1
 with:
   endpoint: "https://example.com/micropub"
-  token:
+  token: ${{ secrets.MICROPUB_TOKEN }}
   post:
     - type:
         - "h-entry"
