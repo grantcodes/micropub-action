@@ -16,7 +16,7 @@ This action uses [`grantcodes/micropub`](https://github.com/grantcodes/micropub)
 
 **Required** The post to create.
 
-The action tries to be intelligent and figure out if you are using a form encoded style object, json style object or a json string.
+GitHub actions require inputs to be strings, so you must write the post as a json string or use the `toJSON` function. But to make things easier you do not need to write valid mf2 json as the action tries to be intelligent and figure out if you are using a form encoded style object or json style object and fill in missing types.
 
 ## Outputs
 
@@ -31,8 +31,7 @@ uses: grantcodes/micropub-action@v1
 with:
   endpoint: "https://example.com/micropub"
   token: ${{ secrets.MICROPUB_TOKEN }}
-  post:
-    - content: "Hello this is a basic note"
+  post: '{ "content": "Hello this is a basic note" }'
 ```
 
 ```yaml
@@ -40,13 +39,13 @@ uses: grantcodes/micropub-action@v1
 with:
   endpoint: "https://example.com/micropub"
   token: ${{ secrets.MICROPUB_TOKEN }}
-  post:
-    - type:
-        - "h-entry"
-    - properties:
-        - name:
-            - "Full Article"
-        - content:
-            - "This is a full in valid json representation"
-        - category: ["foo", "bar"]
+  post: |
+    {
+      "type": [ "h-entry" ],
+      "properties": {
+        "name": [ "Full Article" ],
+        "content": [ "This is a full in valid json representation" ],
+        "category": ["foo", "bar"]
+      }
+    }
 ```
